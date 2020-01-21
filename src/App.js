@@ -1,21 +1,57 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{ useState, useEffect } from 'react';
 import './App.css';
 import Player from './components/Player'
+import axios from 'axios'
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 
 function App() {
+  const [data, setData] = useState({ hits: [] });
+  const [query, setQuery] = useState('redux');
+  const [search, setSearch] = useState('redux');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        `http://hn.algolia.com/api/v1/search?query=${search}`,
+      );
+      setData(result.data);
+    };
+    fetchData();
+  }, [search]);
+
   return (
     <div className="App">
       <header className="App-header">
+      {/*
         <Player id="test_id_007" />
-        <img src={logo} className="App-logo" alt="logo" />
+      */}
+      <Jumbotron >
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Type in a search term.
         </p>
+        <input
+          type="text"
+          value={query}
+          onChange={event => setQuery(event.target.value)}
+        />
+        <button type="button" onClick={() => {setSearch(query)}}>
+          Search
+        </button>
+      </Jumbotron>
+        <ul>
+          {data.hits.map(item => (
+            <li key={item.objectID}>
+              <a href={item.url}>{item.title}</a>
+            </li>
+          ))}
+        </ul>
       </header>
 
     </div>
   );
 }
+
 
 export default App;
