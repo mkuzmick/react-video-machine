@@ -25,7 +25,7 @@ function FetchExample() {
       {/*
         <Player id="test_id_007" />
       */}
-      <Jumbotron >
+      <Jumbotron style={{color:"blue"}}>
         <p>
           Type in a search term.
         </p>
