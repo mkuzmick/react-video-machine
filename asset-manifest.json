@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/github.io/react-video-machine/static/css/main.6f6a57fa.chunk.css",
+    "main.js": "/github.io/react-video-machine/static/js/main.3c29be82.chunk.js",
+    "main.js.map": "/github.io/react-video-machine/static/js/main.3c29be82.chunk.js.map",
+    "runtime-main.js": "/github.io/react-video-machine/static/js/runtime-main.749fd468.js",
+    "runtime-main.js.map": "/github.io/react-video-machine/static/js/runtime-main.749fd468.js.map",
+    "static/css/2.47e06e2e.chunk.css": "/github.io/react-video-machine/static/css/2.47e06e2e.chunk.css",
+    "static/js/2.6e0262fa.chunk.js": "/github.io/react-video-machine/static/js/2.6e0262fa.chunk.js",
+    "static/js/2.6e0262fa.chunk.js.map": "/github.io/react-video-machine/static/js/2.6e0262fa.chunk.js.map",
+    "index.html": "/github.io/react-video-machine/index.html",
+    "precache-manifest.32c6702eb4a10d50ee8e4a59765e5b22.js": "/github.io/react-video-machine/precache-manifest.32c6702eb4a10d50ee8e4a59765e5b22.js",
+    "service-worker.js": "/github.io/react-video-machine/service-worker.js",
+    "static/css/2.47e06e2e.chunk.css.map": "/github.io/react-video-machine/static/css/2.47e06e2e.chunk.css.map",
+    "static/css/main.6f6a57fa.chunk.css.map": "/github.io/react-video-machine/static/css/main.6f6a57fa.chunk.css.map",
+    "static/js/2.6e0262fa.chunk.js.LICENSE": "/github.io/react-video-machine/static/js/2.6e0262fa.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.749fd468.js",
+    "static/css/2.47e06e2e.chunk.css",
+    "static/js/2.6e0262fa.chunk.js",
+    "static/css/main.6f6a57fa.chunk.css",
+    "static/js/main.3c29be82.chunk.js"
+  ]
+}
