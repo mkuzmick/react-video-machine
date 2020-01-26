@@ -1,57 +1,40 @@
 import React,{ useState, useEffect } from 'react';
 import './App.css';
-import Player from './components/Player'
-import axios from 'axios'
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import FetchExample from './components/demos/FetchExample';
+import LinksList from './components/basics/LinksList';
+import LinksListAlt from './components/basics/LinksListAlt';
+import Layout from './components/vimeo-machine-replica/Layout';
+import LinksData from './data/LinksData';
+import NavigationBar from './components/basics/NavigationBar';
+import VimeoMachineReplica from "./components/vimeo-machine-replica/Container";
 
 function App() {
-  const [data, setData] = useState({ hits: [] });
-  const [query, setQuery] = useState('redux');
-  const [search, setSearch] = useState('redux');
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(
-        `http://hn.algolia.com/api/v1/search?query=${search}`,
-      );
-      setData(result.data);
-    };
-    fetchData();
-  }, [search]);
-
+  const Home = (props) => {
+    return (
+      <div>
+        <h1>home.</h1>
+      </div>
+    )
+  }
   return (
     <div className="App">
-      <header className="App-header">
-      {/*
-        <Player id="test_id_007" />
-      */}
-      <Jumbotron >
-        <p>
-          Type in a search term.
-        </p>
-        <input
-          type="text"
-          value={query}
-          onChange={event => setQuery(event.target.value)}
-        />
-        <button type="button" onClick={() => {setSearch(query)}}>
-          Search
-        </button>
-      </Jumbotron>
-        <ul>
-          {data.hits.map(item => (
-            <li key={item.objectID}>
-              <a href={item.url}>{item.title}</a>
-            </li>
-          ))}
-        </ul>
-      </header>
-
+      <Layout>
+        <NavigationBar links={ LinksData } />
+        <div style={{marginTop:"30px"}}>
+          <Router>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/vimeo-machine-replica" component={VimeoMachineReplica} />
+              <Route path="/fetch-example" render={() => {return (<FetchExample />)}  } />
+              <Route path="/links-list" render={ (props) => { return (<LinksList links={LinksData}/>) } } />
+              <Route path="/links-list-alt" render={ (props) => { return (<LinksListAlt links={LinksData}/>) } } />
+            </Switch>
+          </Router>
+        </div>
+      </Layout>
     </div>
   );
 }
-
 
 export default App;

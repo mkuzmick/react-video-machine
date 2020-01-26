@@ -1,0 +1,26 @@
+[
+  {
+    "text": "About",
+    "path": "/about"
+  },
+  {
+    "text": "People",
+    "path": "/people"
+  },
+  {
+    "text": "Fetch Example",
+    "path": "/fetch-example"
+  },
+  {
+    "text": "Vimeo Machine Replica",
+    "path": "/vimeo-machine-replica"
+  },
+  {
+    "text": "Links List",
+    "path": "/links-list"
+  },
+  {
+    "text": "Links List Alternative",
+    "path": "/links-list-alt"
+  }
+]
