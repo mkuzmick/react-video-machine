@@ -1,0 +1,483 @@
+/*--------------------------------------------------------------
+Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar */
+}
+
+/*--------------------------------------------------------------
+Typography
+--------------------------------------------------------------*/
+
+body {
+	margin: 0;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	font-family: 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+    display: inline-block;
+    font-family: "Courier 10 Pitch", Courier, monospace;
+    color: #ddca7e;
+    background: #282c34;
+		padding: .5em .8em;
+    border-radius: .2em;
+}
+
+code,
+kbd,
+tt,
+var {
+	font: 12px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+sup,
+sub {
+	font-size: 75%;
+	height: 0;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	bottom: 1ex;
+}
+
+sub {
+	top: .5ex;
+}
+
+small {
+	font-size: 75%;
+}
+
+big {
+	font-size: 125%;
+}
+
+/* Global layouts */
+@media screen and (min-width: 700px) {
+    .two-column {
+        column-count: 2;
+        column-gap: 2.4em;
+    }
+}
+
+/* Global buttons */
+.content-button {
+	padding: .5em 1em;
+	border: 3px solid #B51C35;
+	/*border-radius: 10px;*/
+	font-weight: 600;
+}
+
+a.content-button {
+	color: black;
+	text-decoration: none;
+}
+
+a.content-button:focus,
+a.content-button:hover {
+	background: #B51C35;
+	color: #FFFCED;
+}
+
+
+/*--------------------------------------------------------------
+General styling
+--------------------------------------------------------------*/
+
+.site {
+	/* margin: 1em; */
+}
+
+.masthead,
+.page-title,
+.main-content,
+.sidebar,
+.footer-content {
+	/* margin-bottom: 1em; */
+    padding: 1em;
+    color: white;
+
+}
+
+.masthead {
+
+}
+
+.page-title {
+    background-color: rgba(255,140,0,.6);
+}
+
+.main-content {
+    background-color: rgba(0,130,190,.4);
+}
+
+.sidebar {
+    background-color: rgba(20,0,170,.4);
+}
+
+.footer-content {
+    background-color: rgba(85,240,100,.5);
+}
+
+.site {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 367px 1fr 1fr;
+  grid-template-areas:
+    "title title"
+    "main main"
+    "buttonbox buttonbox"
+    "sidebar sidebar"
+    "footer masthead";
+    margin: .3em;
+    width: calc(100% - .6em);
+  grid-gap: .3em;
+  font-family: monospace;
+  font-size: 14px;
+  max-height: 100vh;
+  min-height: calc(100vh - .6em);
+}
+
+@media screen and (min-width: 600px) {
+  .site {
+    display: grid;
+    position: fixed;
+    grid-template-columns: 640px 1fr 1fr;
+    grid-template-rows: 100px 367px 1fr 100px;
+    grid-template-areas:
+      "title masthead masthead"
+      "main sidebar sidebar"
+      "buttonbox sidebar sidebar"
+      "footer footer footer";
+      margin: .3em;
+      width: calc(100% - .6em);
+    max-height: 100vh;
+    min-height: calc(100vh - .6em);
+  }
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.page-title {
+  grid-area: title;
+  border-radius: 10px;
+}
+
+#result-box {
+  border-radius: 10px;
+}
+
+.masthead {
+  /* grid-column: 1/2;
+  grid-row: 1/2; */
+  /* z-index: +100; */
+  grid-area: masthead;
+  border-radius: 10px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0px;
+  grid-column-gap: .3em;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  overflow: scroll;
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.sidebar p {
+  margin: 0;
+}
+
+.main-content {
+  grid-area: main;
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 8px;
+  z-index: 3;
+}
+
+.button-box {
+  grid-area: buttonbox;
+  border-radius: 10px;
+  background-color: rgba(0,130,190,.4);
+  color: white;
+  padding: 5px;
+}
+
+.footer-content {
+  grid-area: footer;
+  border-radius: 10px;
+}
+
+.logging-button {
+  font-family: 'Courier';
+  font-size: 10px;
+  background-color: rgba(40,40,155,.9);
+  margin: 4px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#main-overlay {
+  grid-area: main;
+  overflow: hidden;
+  background-color: rgba(70,0,0,.0);
+  border-radius: 10px;
+  padding: 8px;
+  transition: background-color .5s;
+  z-index: 1;
+}
+
+#main-overlay:hover{
+  background-color: rgba(70,0,0,.5);
+}
+
+#overlayOff {
+  grid-area: overlayOff;
+  cursor: pointer;
+}
+
+#overlayOn {
+  grid-area: overlayOn;
+  cursor: pointer;
+}
+
+
+#logButton {
+  grid-area: logbutton;
+  cursor: pointer;
+}
+
+#likeButton {
+  grid-area: likebutton;
+  cursor: pointer;
+}
+
+#inButton {
+  grid-area: inbutton;
+  cursor: pointer;
+}
+
+#outButton {
+  grid-area: outbutton;
+  cursor: pointer;
+}
+
+#playButton {
+  grid-area: playButton;
+  cursor: pointer;
+  background-color: rgba(70,190,90,0.9);
+}
+
+
+#pauseButton {
+  grid-area: pauseButton;
+  cursor: pointer;
+  background-color: rgba(170,70,90,0.9);
+}
+
+
+#player {
+  border-radius: 10px;
+}
+
+#the-button-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "overlayOn overlayOff"
+    "playButton pauseButton"
+    "logbutton likebutton"
+    "inbutton outbutton";
+}
+
+
+
+#touch-zones {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+#video-button-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 45px 45px;
+  padding: 5px;
+}
+
+.video-link-button {
+  cursor: pointer;
+  background-color: rgba(70,70,70,0.9);
+  font-family: 'Courier';
+  font-size: 10px;
+  margin: 4px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.video-link-button-input {
+  background-color: rgba(70,190,90,0.9);
+  font-family: 'Courier';
+  font-size: 10px;
+  margin: 4px;
+  border-radius: 5px;
+  padding: 6px;
+}
+
+.video-link-button-submit {
+  cursor: pointer;
+  background-color: rgba(70,190,90,0.9);
+  font-family: 'Courier';
+  font-size: 10px;
+  margin: 4px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.form-input {
+  padding-left: 10px;
+  font-size: 12px
+}
+
+.no-background{
+  color: white;
+  background-color: rgba(0,0,0,0.0);
+}
+
+h2 {
+
+}
+
+h1 {
+
+}
+
+input {
+  font-family: monospace;
+  font-size: 10px;
+  width: 100px;
+}
+
+.masthead-buttons {
+  background-color: rgba(220,0,170,.4);
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 32px;
+  font-size: 10px;
+  line-height: 1.2em;
+}
+
+#userVideoId {
+  font-size: 10px;
+  margin-top:0;
+  margin-bottom: 5px;
+  margin-right: 4px;
+  border: 0px solid red;
+  width: calc(100% - .2em);
+  height: 22px;
+  background-color: rgba(255,255,255,0.6);
+
+}

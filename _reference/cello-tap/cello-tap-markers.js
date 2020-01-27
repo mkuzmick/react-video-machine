@@ -14,7 +14,7 @@ var playercontainer = document.querySelector('#playercontainer');
 var vimeoElement = document.createElement('iframe');
 var videoOverlay = document.querySelector('#main-overlay');
 
-var options = { 
+var options = {
         id: currentVideoId,
         width: 623,
         loop: true

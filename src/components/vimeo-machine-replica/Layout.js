@@ -1,4 +1,5 @@
 import React from 'react'
+import './vimeo-markers.css'
 
 export default(props)=>{
   return (
