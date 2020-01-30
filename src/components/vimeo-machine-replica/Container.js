@@ -1,4 +1,6 @@
 import React from 'react'
+import VimeoPlayer from './VimeoPlayer'
+import './vimeo-markers.css'
 
 export default (props) => {
   return(
@@ -22,8 +24,8 @@ export default (props) => {
               </label>
 
           </div>
-          <main id="playercontainer" class="main-content">
-          </main>
+          <VimeoPlayer className="player-container main-content">
+          </VimeoPlayer>
           <div id="main-overlay">
             <div id="touch-zones">
             </div>

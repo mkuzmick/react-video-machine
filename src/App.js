@@ -8,6 +8,7 @@ import Layout from './components/vimeo-machine-replica/Layout';
 import LinksData from './data/LinksData';
 import NavigationBar from './components/basics/NavigationBar';
 import VimeoMachineReplica from "./components/vimeo-machine-replica/Container";
+import Test from "./components/Test"
 
 function App() {
   const Home = (props) => {
@@ -28,7 +29,7 @@ function App() {
               <Route path="/vimeo-machine-replica" component={VimeoMachineReplica} />
               <Route path="/fetch-example" render={() => {return (<FetchExample />)}  } />
               <Route path="/links-list" render={ (props) => { return (<LinksList links={LinksData}/>) } } />
-              <Route path="/links-list-alt" render={ (props) => { return (<LinksListAlt links={LinksData}/>) } } />
+              <Route path="/test" render={ (props) => { return (<Test />) } } />
             </Switch>
           </Router>
         </div>
