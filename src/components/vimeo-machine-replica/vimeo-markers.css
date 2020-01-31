@@ -209,7 +209,7 @@ General styling
   grid-template-areas:
     "title title"
     "main main"
-    "buttonbox buttonbox"
+    "controls controls"
     "sidebar sidebar"
     "footer masthead";
     margin: .3em;

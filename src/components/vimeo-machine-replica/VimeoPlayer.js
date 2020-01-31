@@ -18,11 +18,13 @@ export default (props)=>{
   }, [])
 
   return (
-    <div className="main-content" >
-      <div id="player" ref={container} style={{height: '100%'}}>
+    <div className="site">
+      <div className="main-content" >
+        <div id="player" ref={container} style={{height: '100%'}}>
+        </div>
+        <button onClick={() => player.current.play()}>play</button>
+        <button onClick={() => player.current.pause()}>pause</button>
       </div>
-      <button onClick={() => player.current.play()}>play</button>
-      <button onClick={() => player.current.pause()}>pause</button>
     </div>
   )
 }

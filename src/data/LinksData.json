@@ -1,26 +1,22 @@
 [
   {
-    "text": "About",
-    "path": "/about"
-  },
-  {
-    "text": "People",
-    "path": "/people"
-  },
-  {
-    "text": "Fetch Example",
+    "text": "FetchEx",
     "path": "/fetch-example"
   },
   {
-    "text": "Vimeo Machine Replica",
+    "text": "VimeoMachineReplica",
     "path": "/vimeo-machine-replica"
   },
   {
-    "text": "Links List",
+    "text": "VimeoMachineRebuilt",
+    "path": "/vimeo-machine-rebuilt"
+  },
+  {
+    "text": "LinksList",
     "path": "/links-list"
   },
   {
-    "text": "Links List Alternative",
-    "path": "/links-list-alt"
+    "text": "Test",
+    "path": "/test"
   }
 ]

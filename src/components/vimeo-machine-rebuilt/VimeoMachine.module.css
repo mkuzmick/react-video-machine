@@ -1,0 +1,62 @@
+/*
+  DEFINE MOBILE FIRST
+*/
+.site {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 367px 1fr 1fr;
+  grid-template-areas:
+    "title title"
+    "viewer viewer"
+    "controls controls"
+    "sidebar sidebar"
+    "footer masthead";
+}
+
+/*
+  ON LARGER SCREENS . . .
+*/
+@media screen and (min-width: 600px) {
+  .site {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 640px 1fr 1fr;
+  grid-template-rows: 100px 367px 1fr 1fr;
+  grid-template-areas:
+    "title masthead masthead"
+    "viewer data data"
+    "controls data data"
+    "footer footer footer";
+    margin: .3em;
+    width: calc(100% - .6em);
+  max-height: 100vh;
+  min-height: calc(100vh - .6em);
+  }
+}
+
+
+.viewer,
+.data,
+.sidebar,
+.controls,
+.footer,
+.header {
+  /* padding: 1em; */
+  color: white;
+}
+
+.viewer {
+  background-color: white;
+  grid-area: viewer;
+}
+
+.controls {
+  background-color: rgba(255,140,0,.3);
+  grid-area: controls;
+}
+
+.data {
+  background-color: rgba(255,140,0,.9);
+  grid-area: data;
+}

@@ -5,15 +5,14 @@ import './vimeo-markers.css'
 export default (props) => {
   return(
     <div className="site">
-          <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-          <header class="masthead" id="sendButton">
-              <div class="masthead-buttons" id="jsonButton">
-                click<br/>for<br/>JSON
-              </div>
-              <div class="masthead-buttons" id="sendToServer">
-                send<br/>to<br/>server
-              </div>
-          </header>
+        <header class="masthead" id="sendButton">
+            <div class="masthead-buttons" id="jsonButton">
+              click<br/>for<br/>JSON
+            </div>
+            <div class="masthead-buttons" id="sendToServer">
+              send<br/>to<br/>server
+            </div>
+        </header>
           <div class="page-title">
               <code class="identifier"><pre>vimeo markers machine</pre></code>
               <label class="form-input">name:
