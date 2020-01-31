@@ -1,0 +1,7 @@
+.data {
+  grid-area: data;
+}
+
+.datum {
+  background-color: rgba(255, 0, 50, 0.2);
+}

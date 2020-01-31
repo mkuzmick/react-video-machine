@@ -1,15 +1,13 @@
 import React from 'react';
 import styles from './Controls.module.css'
 
-const tags = ["good take", "bad take"]
-
 export default function (props) {
   return (
     <div className={styles.controls}>
       <div className={styles.button} onClick={() => props.play()}>play</div>
       <div className={styles.button} onClick={() => props.pause()}>pause</div>
       <div className={styles.button} onClick={() => props.like()}>like</div>
-      {tags.map((tag, index)=>{
+      {props.tags.map((tag, index)=>{
         return(
           <div
             key={index}
