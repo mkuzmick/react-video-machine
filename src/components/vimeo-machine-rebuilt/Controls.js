@@ -5,16 +5,44 @@ export default function (props) {
 
   const [ isPlaying, setPlaying ] = useState(false);
 
-  const playPause = () => {
+  const playPause = async () => {
     if (isPlaying) {
-      console.log("playing, so we're pausing");
+      console.log("currently playing, so we're pausing");
       props.player.current.pause()
         .then(()=>{setPlaying(false)})
+        .then(()=>{
+          props.player.current.getCurrentTime()
+            .then((ts)=>{
+              props.setEvents(
+                [
+                  ...props.events,
+                  {
+                    tag: "pause",
+                    ts: ts
+                  }
+                ]
+              )
+            })
+        })
         .catch((err)=>{console.error(err);});
     } else {
-      console.log("paused, so we're playing");
+      console.log("currently paused, so we're playing");
       props.player.current.play()
         .then(()=>{setPlaying(true)})
+        .then(()=>{
+          props.player.current.getCurrentTime()
+            .then((ts)=>{
+              props.setEvents(
+                [
+                  ...props.events,
+                  {
+                    tag: "play",
+                    ts: ts
+                  }
+                ]
+              )
+            })
+        })
         .catch((err)=>{console.error(err);});
     }
   }
@@ -29,7 +57,7 @@ export default function (props) {
         {isPlaying ? "pause" : "play"}
       </div>
       <div className={styles.button} onClick={() => props.player.current.pause()}>pause</div>
-      <div className={styles.button} onClick={() => props.like(props.player)}>like</div>
+
       {props.tags.map((tag, index)=>{
         return(
           <div
@@ -39,6 +67,7 @@ export default function (props) {
               ()=>{
                 props.tag().then(seconds=>{
                   console.log(`${tag} at ${seconds} seconds.`);
+                  props.setEvents([...props.events, {tag: tag, ts: seconds}])
                 })
               }
             }

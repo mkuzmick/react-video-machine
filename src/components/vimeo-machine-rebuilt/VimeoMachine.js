@@ -3,13 +3,13 @@ import Player from '@vimeo/player'
 import styles from './VimeoMachine.module.css'
 import Controls from './Controls.js'
 import TagInput from './TagInput'
-import Data from './Data.js'
+import EventLog from './EventLog.js'
 
 export default (props)=>{
   const container = useRef(document.createElement('div'));
   const player = useRef();
   const [tags, setTags] = useState(["good take", "bad take", "other", "test"]);
-  const [data, setData] = useState(["no data yet"]);
+  const [events, setEvents] = useState(["no events yet"]);
 
   useEffect(()=>{
     (async ()=>{
@@ -36,10 +36,11 @@ export default (props)=>{
           const time = await player.current.getCurrentTime();
           return time;
         }}
-        update={setData}
+        setEvents={setEvents}
+        events={events}
       />
     <TagInput />
-      <Data data={data} />
+      <EventLog events={events} setEvents={setEvents} />
     </div>
   )
 }
