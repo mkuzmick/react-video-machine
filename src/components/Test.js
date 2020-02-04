@@ -18,11 +18,10 @@ export default (props)=>{
 
   return (
     <div>
-      <p>player will go here</p>
       <div id='player' ref={container} style={{height: '100%'}}>
       </div>
-      <button onClick={() => player.current.play()}>play</button>
-      <button onClick={() => player.current.pause()}>pause</button>
+      <button onClick={() => props.player.current.play()}>play</button>
+      <button onClick={() => props.player.current.pause()}>pause</button>
     </div>
   )
 }

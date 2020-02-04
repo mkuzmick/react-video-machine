@@ -1,15 +1,14 @@
 import React, {useEffect, useRef, useState} from 'react'
 import Player from '@vimeo/player'
-// import './reset.css'
 import styles from './VimeoMachine.module.css'
 import Controls from './Controls.js'
+import TagInput from './TagInput'
 import Data from './Data.js'
-
 
 export default (props)=>{
   const container = useRef(document.createElement('div'));
   const player = useRef();
-  const [tags, setTags] = useState(["good take", "bad take", "other", "test"])
+  const [tags, setTags] = useState(["good take", "bad take", "other", "test"]);
   const [data, setData] = useState(["no data yet"]);
 
   useEffect(()=>{
@@ -22,6 +21,7 @@ export default (props)=>{
       })
     })()
   }, [])
+
   return (
     <div className={styles.site}>
       <div className={styles.viewer} >
@@ -29,21 +29,8 @@ export default (props)=>{
         </div>
       </div>
       <Controls
+        player={ player }
         className={styles.controls}
-        play={
-          () => player.current.play()
-          .then(()=>{
-            console.log("we played it");
-            setData(["we played it", ...data])
-          })
-          .catch((err)=>{console.log("something went wrong");})
-        }
-        pause={() => player.current.pause()}
-        like={()=>{
-          player.current.getCurrentTime()
-          .then(seconds=>{console.log(`you liked a moment ${seconds} seconds in.`)})
-          .catch(err=>{console.log("hmm. some sort of error occurred. try again.");})
-        }}
         tags={tags}
         tag={async () => {
           const time = await player.current.getCurrentTime();
@@ -51,6 +38,7 @@ export default (props)=>{
         }}
         update={setData}
       />
+    <TagInput />
       <Data data={data} />
     </div>
   )
