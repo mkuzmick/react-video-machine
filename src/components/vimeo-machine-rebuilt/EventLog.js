@@ -7,7 +7,11 @@ export default ({ events }) => {
       {
         events.map(event=>{
           return(
-            <div className={styles.event}>{JSON.stringify(event)}</div>
+            <div
+              className={styles.event}
+            >
+              {JSON.stringify(event)}
+            </div>
           )
         })
       }

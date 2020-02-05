@@ -1,7 +1,10 @@
-.events {
+.eventLog {
   grid-area: events;
 }
 
 .event {
   background-color: rgba(255, 0, 50, 0.2);
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
 }
